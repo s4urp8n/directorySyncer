@@ -20,6 +20,30 @@ module.exports = {
     isEmptyDirectory: function (path) {
         return this.getDirectoryContentRecursive(path).length == 0;
     },
+    copyFile: function (source, destination) {
+        this.createDirectoryIfNotExists(PATH.dirname(destination));
+        if (this.isFile(source)) {
+            FS.copyFileSync(source, destination);
+        }
+    },
+    removePath: function (path) {
+        var that = this;
+        if (FS.existsSync(path)) {
+            if (FS.statSync(path).isFile()) {
+                FS.unlinkSync(path);
+            } else {
+                FS.readdirSync(path).forEach(function (file, index) {
+                    var curPath = PATH.join(path, file);
+                    if (FS.statSync(curPath).isDirectory()) {
+                        that.removePath(curPath);
+                    } else {
+                        FS.unlinkSync(curPath);
+                    }
+                });
+                FS.rmdirSync(path);
+            }
+        }
+    },
     getDirectoryContent: function (path) {
         if (this.isFile(path)) {
             return [path];

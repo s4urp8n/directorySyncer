@@ -15,7 +15,7 @@ function updateProjects() {
     FUNCTIONS.getProjectsNames(CONFIG.workingDir).forEach(function (projectName) {
         if (!FUNCTIONS.isObjectPropExists(projects, projectName)) {
             projects[projectName] = new PROJECT.Project(projectName);
-            console.log(projectName + ' initialized');
+            console.log('[' + projectName + '] initialized');
         }
     });
 }
