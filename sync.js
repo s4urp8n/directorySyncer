@@ -3,10 +3,15 @@ const FUNCTIONS = require('./functions');
 const PROJECT = require('./project');
 
 var projects = {};
+var running = true; //because we don't want interval overlap
 
 function sync() {
-    updateProjects();
-    syncProjects();
+    if (running) {
+        running = false;
+        updateProjects();
+        syncProjects();
+        running = true;
+    }
 }
 
 function updateProjects() {
