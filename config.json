@@ -2,6 +2,6 @@
   "workingDir": "D:/ae/working",
   "releaseDir": "D:/ae/release",
   "outDirName": "out",
-  "checkIntervalSeconds": 10,
+  "checkIntervalSeconds": 300,
   "move": false
 }
