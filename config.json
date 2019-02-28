@@ -1,0 +1,8 @@
+{
+  "workingDir": "D:/ae/working",
+  "releaseDir": "D:/ae/release",
+  "outDirName": "out",
+  "checkIntervalSeconds": 10,
+  "strategy_comment": "move|copy",
+  "strategy": "move"
+}
