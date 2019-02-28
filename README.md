@@ -1,5 +1,10 @@
 # DirectorySyncer
 
+## Install
+```
+npm install
+```
+
 ## RUN 
 
 cmd
